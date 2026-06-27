@@ -1,0 +1,4722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Favorite Guardian ❤️</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;500;700&display=swap');
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    cursor:none;
+}
+
+
+body{
+
+    overflow:hidden;
+    height:100vh;
+    background:
+    radial-gradient(circle at center,#101b4b,#02030c 70%);
+    font-family:'Orbitron',sans-serif;
+    color:white;
+
+}
+
+
+/* =========================
+   BACKGROUND SPACE
+========================= */
+
+
+#space{
+
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+
+}
+
+
+.star{
+
+    position:absolute;
+    background:white;
+    border-radius:50%;
+    opacity:.8;
+
+    animation:
+    twinkle var(--time) infinite ease-in-out;
+
+}
+
+
+@keyframes twinkle{
+
+    0%,100%{
+        opacity:.2;
+        transform:scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.5);
+    }
+
+}
+
+
+
+/* =========================
+   NEBULA
+========================= */
+
+
+.nebula{
+
+    position:absolute;
+    width:900px;
+    height:900px;
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+    circle,
+    rgba(0,200,255,.18),
+    transparent 70%
+    );
+
+    filter:blur(40px);
+
+    animation:
+    nebulaMove 20s infinite alternate;
+
+}
+
+
+@keyframes nebulaMove{
+
+    from{
+        transform:translate(-200px,-100px);
+    }
+
+    to{
+        transform:translate(200px,150px);
+    }
+
+}
+
+
+
+
+/* =========================
+   PLANETS
+========================= */
+
+
+.planet{
+
+    position:absolute;
+    border-radius:50%;
+
+    transform-style:preserve-3d;
+
+}
+
+
+.planet.big{
+
+    width:500px;
+    height:500px;
+
+    right:-180px;
+    bottom:-120px;
+
+
+    background:
+    radial-gradient(
+    circle at 30% 30%,
+    #7be0ff,
+    #142b70 45%,
+    #050718
+    );
+
+    box-shadow:
+    0 0 80px #4acfff;
+
+    animation:
+    rotatePlanet 40s linear infinite;
+
+}
+
+
+
+.planet.small{
+
+    width:150px;
+    height:150px;
+
+    left:100px;
+    top:180px;
+
+
+    background:
+    radial-gradient(circle,#c39cff,#30125c);
+
+    box-shadow:
+    0 0 40px violet;
+
+
+    animation:
+    float 8s infinite ease-in-out;
+
+}
+
+
+
+
+@keyframes rotatePlanet{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+
+@keyframes float{
+
+    50%{
+        transform:translateY(-25px);
+    }
+
+}
+
+
+
+
+/* =========================
+   SHIP
+========================= */
+
+
+.ship{
+
+    position:absolute;
+
+    font-size:90px;
+
+    left:-200px;
+    bottom:30%;
+
+    filter:
+    drop-shadow(0 0 25px cyan);
+
+    animation:
+
+    fly 20s linear infinite;
+
+}
+
+
+
+@keyframes fly{
+
+    0%{
+        left:-200px;
+        transform:rotate(-10deg);
+    }
+
+
+    50%{
+        transform:rotate(10deg);
+    }
+
+
+    100%{
+
+        left:110%;
+        transform:rotate(-10deg);
+
+    }
+
+}
+
+
+
+/* =========================
+   CURSOR LIGHT
+========================= */
+
+
+.cursorStar{
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    background:white;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    box-shadow:
+    0 0 20px cyan,
+    0 0 40px white;
+
+
+    animation:
+    disappear 1s forwards;
+
+}
+
+
+@keyframes disappear{
+
+    to{
+
+        opacity:0;
+
+        transform:
+        translateY(-50px)
+        scale(0);
+
+    }
+
+}
+
+
+
+/* =========================
+   UI
+========================= */
+
+
+.container{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    z-index:5;
+
+}
+
+
+
+h1{
+
+    max-width:900px;
+
+    font-size:42px;
+
+    line-height:1.5;
+
+    text-shadow:
+
+    0 0 20px cyan,
+    0 0 50px blue;
+
+
+}
+
+
+
+button{
+
+    margin-top:40px;
+
+    padding:15px 50px;
+
+    border-radius:40px;
+
+    border:none;
+
+    background:white;
+
+    font-family:inherit;
+
+    transition:.4s;
+
+}
+
+
+
+button:hover{
+
+    transform:scale(1.15);
+
+    box-shadow:
+    0 0 40px cyan;
+
+}
+
+
+
+.text{
+
+    max-width:850px;
+
+    margin-top:30px;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+}
+
+
+
+.hidden{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:
+    1.5s;
+
+}
+
+
+.visible{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+
+
+
+/* =========================
+   GHOST
+========================= */
+
+
+.ghost{
+
+    position:absolute;
+
+    right:60px;
+    bottom:60px;
+
+    font-size:60px;
+
+    opacity:.5;
+
+    animation:
+
+    ghostFloat 4s infinite ease-in-out;
+
+    z-index:10;
+
+}
+
+
+
+@keyframes ghostFloat{
+
+    50%{
+
+        transform:
+        translateY(-20px)
+        rotate(10deg);
+
+    }
+
+}
+
+
+
+#ghostText{
+
+    position:absolute;
+
+    right:30px;
+    bottom:140px;
+
+    width:220px;
+
+    opacity:0;
+
+    transition:.5s;
+
+}
+
+
+
+
+/* =========================
+   HEART ENDING
+========================= */
+
+
+#heart{
+
+    position:absolute;
+
+    font-size:160px;
+
+    opacity:0;
+
+    transition:3s;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<div id="space"></div>
+
+
+<div class="nebula"></div>
+
+
+<div class="planet big"></div>
+
+<div class="planet small"></div>
+
+
+
+<div class="ship">
+🚀
+</div>
+
+
+
+
+<div class="container">
+
+
+<h1 id="title">
+
+I don't really want to play Destiny...
+
+<br>
+
+but I want to play with you.
+
+</h1>
+
+
+
+<button id="continue">
+Continue
+</button>
+
+
+
+<div id="story">
+
+
+<div class="text hidden" id="one">
+
+Maybe I don't need the game...
+
+<br>
+
+Maybe I just needed another reason
+
+to spend more time with my favorite Guardian.
+
+</div>
+
+
+
+<div class="text hidden" id="two">
+
+I might actually pay for Destiny.
+
+<br>
+
+Consider it for our anniversary.
+
+<br>
+
+Not because of the game...
+
+<br>
+
+because of the memories we'll create.
+
+</div>
+
+
+
+<div class="text hidden" id="three">
+
+I don't care if we wipe.
+
+<br>
+
+I don't care if we fail missions.
+
+<br>
+
+I just want you in my fireteam.
+
+</div>
+
+
+
+<div class="text hidden" id="four">
+
+The Light isn't what makes a Guardian special.
+
+<br>
+
+You do.
+
+❤️
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="ghost" id="ghost">
+✦
+</div>
+
+
+<div id="ghostText">
+
+A Ghost found you...
+
+<br><br>
+
+Eyes up, Guardian.
+
+</div>
+
+
+
+<div id="heart">
+
+❤️
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+/* STARS */
+
+
+for(let i=0;i<300;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+
+let size=Math.random()*3;
+
+
+star.style.width=size+"px";
+star.style.height=size+"px";
+
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+
+
+star.style.setProperty(
+"--time",
+(Math.random()*4+2)+"s"
+);
+
+
+document
+.getElementById("space")
+.appendChild(star);
+
+}
+
+
+
+
+
+/* CURSOR */
+
+
+document.addEventListener(
+"mousemove",
+e=>{
+
+
+let s=document.createElement(
+"div"
+);
+
+
+s.className="cursorStar";
+
+
+s.style.left=e.pageX+"px";
+s.style.top=e.pageY+"px";
+
+
+document.body.appendChild(s);
+
+
+
+setTimeout(
+()=>s.remove(),
+1000
+);
+
+
+});
+
+
+
+
+
+
+/* STORY */
+
+
+let step=0;
+
+
+let button=document
+.getElementById("continue");
+
+
+button.onclick=()=>{
+
+
+step++;
+
+
+let current=
+document.getElementById(
+["one","two","three","four"][step-1]
+);
+
+
+
+if(current){
+
+current.classList.add(
+"visible"
+);
+
+}
+
+
+
+if(step===4){
+
+button.innerHTML="❤️";
+
+setTimeout(()=>{
+
+
+document
+.getElementById("heart")
+.style.opacity=1;
+
+
+},2000);
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+/* GHOST */
+
+
+let ghost=
+document.getElementById("ghost");
+
+
+ghost.onclick=()=>{
+
+
+let box=
+document.getElementById(
+"ghostText"
+);
+
+
+box.style.opacity=1;
+
+
+setTimeout(()=>{
+
+box.style.opacity=0;
+
+},3000);
+
+
+
+};
+
+
+
+
+
+/* SECRET KEYS */
+
+
+let keys=[];
+
+
+let secret=[
+"ArrowUp",
+"ArrowUp",
+"ArrowDown",
+"ArrowDown",
+"ArrowLeft",
+"ArrowRight",
+"ArrowLeft",
+"ArrowRight",
+"b",
+"a"
+];
+
+
+
+document.addEventListener(
+"keydown",
+e=>{
+
+
+keys.push(e.key);
+
+
+keys=
+keys.slice(-10);
+
+
+
+if(
+JSON.stringify(keys)
+===
+JSON.stringify(secret)
+){
+
+
+alert(
+"The Traveler sees your love ✨"
+);
+
+
+}
+
+
+});
+
+
+
+
+
+</script>
+<!-- =========================
+     ADD THIS BEFORE </body>
+     (Part 2 : cinematic systems)
+========================= -->
+
+
+<style>
+
+
+/* =========================
+   HYPERSPACE EFFECT
+========================= */
+
+
+#hyperspace{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+background:black;
+
+z-index:100;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:1s;
+
+overflow:hidden;
+
+}
+
+
+
+.ray{
+
+position:absolute;
+
+width:2px;
+
+height:200px;
+
+background:white;
+
+left:50%;
+
+top:50%;
+
+transform-origin:top;
+
+animation:
+
+warp 1s linear forwards;
+
+}
+
+
+
+@keyframes warp{
+
+
+from{
+
+transform:
+rotate(var(--angle))
+translateY(0)
+scaleY(.1);
+
+opacity:0;
+
+}
+
+
+50%{
+
+opacity:1;
+
+}
+
+
+to{
+
+transform:
+rotate(var(--angle))
+translateY(-1000px)
+scaleY(4);
+
+opacity:0;
+
+}
+
+
+}
+
+
+
+
+/* =========================
+   TYPEWRITER
+========================= */
+
+
+.type{
+
+border-right:2px solid white;
+
+animation:
+
+blink .8s infinite;
+
+}
+
+
+
+@keyframes blink{
+
+
+50%{
+
+border-color:transparent;
+
+}
+
+
+}
+
+
+
+
+
+/* =========================
+   ORBIT UI
+========================= */
+
+
+.orbit{
+
+position:absolute;
+
+width:700px;
+height:700px;
+
+border-radius:50%;
+
+border:1px solid rgba(255,255,255,.2);
+
+animation:
+
+spinOrbit 50s linear infinite;
+
+}
+
+
+@keyframes spinOrbit{
+
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+
+
+
+/* =========================
+   MESSAGES
+========================= */
+
+
+.transmission{
+
+position:absolute;
+
+top:20px;
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:14px;
+
+letter-spacing:5px;
+
+opacity:.6;
+
+}
+
+
+
+
+#final{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+flex-direction:column;
+
+background:black;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:3s;
+
+z-index:50;
+
+}
+
+
+
+#final h2{
+
+
+font-size:45px;
+
+text-align:center;
+
+text-shadow:
+0 0 30px cyan;
+
+
+}
+
+
+
+</style>
+
+
+
+
+
+<div id="hyperspace"></div>
+
+
+<div class="orbit"></div>
+
+
+<div class="transmission">
+
+TRANSMISSION RECEIVED
+
+</div>
+
+
+
+
+<div id="final">
+
+
+<h2>
+
+Mission Complete.
+
+<br><br>
+
+Objective Reward:
+
+<br>
+
+One lifetime with my favorite Guardian ❤️
+
+</h2>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+/* =========================
+   HYPERSPACE
+========================= */
+
+
+function warpJump(){
+
+
+let area=
+document.getElementById(
+"hyperspace"
+);
+
+
+area.style.opacity=1;
+
+
+
+for(
+let i=0;
+i<80;
+i++
+){
+
+
+let ray=
+document.createElement(
+"div"
+);
+
+
+ray.className="ray";
+
+
+ray.style.setProperty(
+"--angle",
+Math.random()*360+"deg"
+);
+
+
+
+area.appendChild(ray);
+
+
+
+setTimeout(
+()=>ray.remove(),
+1000
+);
+
+
+
+}
+
+
+
+setTimeout(()=>{
+
+area.style.opacity=0;
+
+},1200);
+
+
+
+}
+
+
+
+
+
+
+/* Add warp when button progresses */
+
+
+let oldContinue=
+document.getElementById(
+"continue"
+);
+
+
+oldContinue.addEventListener(
+"click",
+()=>{
+
+
+if(step===1){
+
+warpJump();
+
+}
+
+
+
+if(step===4){
+
+
+setTimeout(
+finalScene,
+4000
+);
+
+
+}
+
+
+});
+
+
+
+
+
+
+/* =========================
+   TYPEWRITER EFFECT
+========================= */
+
+
+function writeText(
+element,
+text,
+speed=45
+){
+
+
+element.innerHTML="";
+
+
+let index=0;
+
+
+let timer=setInterval(()=>{
+
+
+element.innerHTML +=
+text[index];
+
+
+index++;
+
+
+
+if(index>=text.length){
+
+clearInterval(timer);
+
+}
+
+
+},speed);
+
+
+
+}
+
+
+
+
+
+
+let title=
+document.getElementById(
+"title"
+);
+
+
+writeText(
+title,
+"I don't really want to play Destiny... but I want to play with you."
+);
+
+
+
+
+
+
+
+/* =========================
+   RANDOM GHOST QUOTES
+========================= */
+
+
+
+let quotes=[
+
+
+"Your Light is brighter than you know.",
+
+
+"I scanned the universe. You're my favorite discovery.",
+
+
+"Guardian, this fireteam is special.",
+
+
+"I believe in this mission.",
+
+
+"Some adventures are worth everything."
+
+];
+
+
+
+
+setInterval(()=>{
+
+
+let box=
+document.getElementById(
+"ghostText"
+);
+
+
+
+box.innerHTML=
+quotes[
+Math.floor(
+Math.random()*quotes.length
+)
+];
+
+
+
+box.style.opacity=1;
+
+
+
+setTimeout(()=>{
+
+box.style.opacity=0;
+
+},4000);
+
+
+
+},15000);
+
+
+
+
+
+
+
+
+
+/* =========================
+   STAR HEART ENDING
+========================= */
+
+
+function createHeart(){
+
+
+for(
+let i=0;
+i<150;
+i++
+){
+
+
+let star=
+document.createElement(
+"div"
+);
+
+
+star.className=
+"cursorStar";
+
+
+
+let angle=
+Math.random()*Math.PI*2;
+
+
+let radius=
+Math.random()*200;
+
+
+
+let x=
+50+
+(
+16*Math.pow(
+Math.sin(angle),
+3
+)
+)/3;
+
+
+
+let y=
+45-
+(
+13*Math.cos(angle)
+-5*Math.cos(2*angle)
+-2*Math.cos(3*angle)
+-Math.cos(4*angle)
+)/5;
+
+
+
+star.style.left=
+x+"vw";
+
+star.style.top=
+y+"vh";
+
+
+
+document.body.appendChild(
+star
+);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+function finalScene(){
+
+
+let final=
+document.getElementById(
+"final"
+);
+
+
+createHeart();
+
+
+
+final.style.opacity=1;
+
+
+
+}
+
+
+
+
+</script>
+<!-- =========================
+ PART 3 : FINAL DESTINY-LIKE DETAILS
+ ADD BEFORE </body>
+========================= -->
+
+
+<style>
+
+
+/* =========================
+   STARS PARTICLE TRAIL
+========================= */
+
+
+.lightParticle{
+
+position:absolute;
+
+width:4px;
+height:4px;
+
+border-radius:50%;
+
+background:white;
+
+pointer-events:none;
+
+box-shadow:
+0 0 15px cyan,
+0 0 35px white;
+
+animation:
+particleFade 2s forwards;
+
+}
+
+
+@keyframes particleFade{
+
+
+0%{
+
+transform:
+scale(1)
+translateY(0);
+
+opacity:1;
+
+}
+
+
+100%{
+
+transform:
+scale(0)
+translateY(-80px);
+
+opacity:0;
+
+}
+
+
+}
+
+
+
+
+
+/* =========================
+   TRAVELER STYLE LIGHT
+========================= */
+
+
+#traveler{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:
+translate(-50%,-50%);
+
+width:300px;
+height:300px;
+
+border-radius:50%;
+
+
+background:
+radial-gradient(
+circle,
+white,
+rgba(255,255,255,.2),
+transparent 70%
+);
+
+
+opacity:0;
+
+transition:
+3s;
+
+
+z-index:20;
+
+
+}
+
+
+
+
+
+#traveler.show{
+
+
+opacity:1;
+
+animation:
+pulseLight 4s infinite;
+
+
+}
+
+
+
+@keyframes pulseLight{
+
+
+50%{
+
+transform:
+translate(-50%,-50%)
+scale(1.2);
+
+}
+
+
+}
+
+
+
+
+/* =========================
+   PLANET CLOUDS
+========================= */
+
+
+.cloud{
+
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+border-radius:50%;
+
+
+background:
+radial-gradient(
+circle at 40% 20%,
+rgba(255,255,255,.25),
+transparent 40%
+);
+
+
+animation:
+cloudMove 15s infinite linear;
+
+
+}
+
+
+
+@keyframes cloudMove{
+
+
+to{
+
+transform:
+rotate(360deg);
+
+}
+
+
+}
+
+
+
+
+
+/* =========================
+   CINEMATIC LETTERS
+========================= */
+
+
+.fadeLetter{
+
+
+opacity:0;
+
+display:inline-block;
+
+animation:
+letterAppear 1s forwards;
+
+
+}
+
+
+@keyframes letterAppear{
+
+
+to{
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+/* =========================
+   FIRETEAM CARD
+========================= */
+
+
+#fireteam{
+
+
+position:absolute;
+
+bottom:40px;
+
+left:50%;
+
+transform:
+translateX(-50%);
+
+
+padding:20px 40px;
+
+
+border:
+
+1px solid rgba(255,255,255,.3);
+
+
+border-radius:20px;
+
+
+background:
+rgba(0,0,0,.3);
+
+
+backdrop-filter:
+blur(10px);
+
+
+opacity:0;
+
+transition:2s;
+
+
+}
+
+
+
+
+#fireteam.show{
+
+opacity:1;
+
+}
+
+
+
+</style>
+
+
+
+
+
+
+<div id="traveler"></div>
+
+
+<div id="fireteam">
+
+FIRETEAM STATUS:
+
+<br><br>
+
+❤️ Connected
+
+<br>
+
+✨ Light Level: Infinite
+
+</div>
+
+
+
+
+
+<script>
+
+
+
+
+
+/* =========================
+   MOUSE LIGHT TRAIL
+========================= */
+
+
+document.addEventListener(
+"mousemove",
+e=>{
+
+
+let p=
+document.createElement(
+"div"
+);
+
+
+
+p.className=
+"lightParticle";
+
+
+
+p.style.left=
+e.pageX+"px";
+
+
+p.style.top=
+e.pageY+"px";
+
+
+
+document.body.appendChild(
+p
+);
+
+
+
+setTimeout(
+()=>p.remove(),
+2000
+);
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =========================
+   PLANET CLOUD LAYER
+========================= */
+
+
+let planet=
+document.querySelector(
+".planet.big"
+);
+
+
+
+let cloud=
+document.createElement(
+"div"
+);
+
+
+
+cloud.className=
+"cloud";
+
+
+
+planet.appendChild(
+cloud
+);
+
+
+
+
+
+
+
+
+
+/* =========================
+   CLICK PLANET
+========================= */
+
+
+planet.onclick=()=>{
+
+
+let traveler=
+document.getElementById(
+"traveler"
+);
+
+
+traveler.classList.add(
+"show"
+);
+
+
+
+setTimeout(()=>{
+
+
+alert(
+"The Traveler has awakened.\n\nThe Light chose you."
+);
+
+
+},2000);
+
+
+
+};
+
+
+
+
+
+
+
+
+
+/* =========================
+   FIRETEAM UNLOCK
+========================= */
+
+
+let oldButton=
+document.getElementById(
+"continue"
+);
+
+
+
+oldButton.addEventListener(
+"click",
+()=>{
+
+
+if(step===3){
+
+
+document
+.getElementById(
+"fireteam"
+)
+.classList.add(
+"show"
+);
+
+
+}
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =========================
+   DESTINY INSPIRED RANDOM EVENTS
+========================= */
+
+
+
+let events=[
+
+
+"Scanning nearby stars...",
+
+
+"New memory discovered.",
+
+
+"Fireteam assembled.",
+
+
+"Orbit reached.",
+
+
+"Unknown planet detected.",
+
+
+"Adventure loading..."
+
+];
+
+
+
+setInterval(()=>{
+
+
+let message=
+document.createElement(
+"div"
+);
+
+
+message.style.position=
+"absolute";
+
+
+message.style.bottom=
+Math.random()*100+"px";
+
+
+message.style.left=
+Math.random()*100+"vw";
+
+
+message.style.opacity=.5;
+
+
+message.innerHTML=
+events[
+Math.floor(
+Math.random()*events.length
+)
+];
+
+
+
+document.body.appendChild(
+message
+);
+
+
+
+setTimeout(
+()=>message.remove(),
+4000
+);
+
+
+
+},9000);
+
+
+
+
+
+
+
+
+
+/* =========================
+   SECRET DOUBLE CLICK
+========================= */
+
+
+let secretClicks=0;
+
+
+document.addEventListener(
+"dblclick",
+()=>{
+
+
+secretClicks++;
+
+
+
+if(secretClicks===3){
+
+
+alert(
+"Secret found:\n\nYou are my favorite loot drop ❤️"
+);
+
+
+
+secretClicks=0;
+
+
+}
+
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =========================
+   IDLE MESSAGE
+========================= */
+
+
+let idle;
+
+
+function idleMessage(){
+
+
+let msg=
+document.createElement(
+"div"
+);
+
+
+
+msg.style.position=
+"absolute";
+
+msg.style.top=
+"50%";
+
+msg.style.width=
+"100%";
+
+msg.style.textAlign=
+"center";
+
+msg.style.fontSize=
+"18px";
+
+
+msg.style.opacity=
+".6";
+
+
+msg.innerHTML=
+"Still in Orbit... just talking ❤️";
+
+
+
+document.body.appendChild(
+msg
+);
+
+
+
+setTimeout(
+()=>msg.remove(),
+5000
+);
+
+
+}
+
+
+
+clearTimeout(idle);
+
+
+idle=setTimeout(
+idleMessage,
+30000
+);
+
+
+
+</script>
+
+  <!-- =========================
+ PART 4 : FINAL CINEMATIC ENDING
+ ADD BEFORE </body>
+========================= -->
+
+
+<style>
+
+
+/* =========================
+   FINAL SPACE CINEMA
+========================= */
+
+
+#cinema{
+
+position:absolute;
+
+inset:0;
+
+background:black;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:3s;
+
+z-index:200;
+
+
+}
+
+
+
+#cinema.active{
+
+opacity:1;
+
+pointer-events:auto;
+
+}
+
+
+
+
+.cinemaText{
+
+font-size:38px;
+
+max-width:900px;
+
+text-align:center;
+
+line-height:1.8;
+
+opacity:0;
+
+}
+
+
+
+.cinemaText.show{
+
+animation:
+textFade 3s forwards;
+
+}
+
+
+
+@keyframes textFade{
+
+
+from{
+
+opacity:0;
+
+transform:
+translateY(40px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+
+}
+
+
+
+
+/* =========================
+   HEART CONSTELLATION
+========================= */
+
+
+
+.loveStar{
+
+position:absolute;
+
+width:5px;
+
+height:5px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:
+
+0 0 15px cyan;
+
+opacity:0;
+
+}
+
+
+.loveStar.appear{
+
+animation:
+loveAppear 2s forwards;
+
+}
+
+
+
+@keyframes loveAppear{
+
+
+to{
+
+opacity:1;
+
+}
+
+
+}
+
+
+
+
+
+/* =========================
+   BUTTON FINAL
+========================= */
+
+
+#launchTogether{
+
+
+margin-top:50px;
+
+padding:18px 60px;
+
+border-radius:50px;
+
+font-size:18px;
+
+opacity:0;
+
+transition:2s;
+
+
+}
+
+
+
+#launchTogether.show{
+
+opacity:1;
+
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+<div id="cinema">
+
+
+<div class="cinemaText" id="cinemaWords">
+
+</div>
+
+
+<button id="launchTogether">
+
+Launch Together 🚀
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+/* =========================
+   FINAL STORY ENGINE
+========================= */
+
+
+let finalLines=[
+
+
+"I thought I was buying a game...",
+
+
+"But maybe I was buying thousands of future memories.",
+
+
+"I can't promise I'll be good.",
+
+
+"I'll probably fall off every platform.",
+
+
+"You'll probably laugh at me.",
+
+
+"I'll laugh too.",
+
+
+"Because every adventure is better with you.",
+
+
+"You're my favorite Guardian ❤️"
+
+
+];
+
+
+
+
+
+let lineIndex=0;
+
+
+function showFinalText(){
+
+
+let box=
+document.getElementById(
+"cinemaWords"
+);
+
+
+if(lineIndex <
+finalLines.length){
+
+
+
+box.innerHTML=
+finalLines[lineIndex];
+
+
+
+box.classList.remove(
+"show"
+);
+
+
+
+setTimeout(()=>{
+
+
+box.classList.add(
+"show"
+);
+
+
+},100);
+
+
+
+lineIndex++;
+
+
+
+setTimeout(
+showFinalText,
+3000
+);
+
+
+
+}
+
+else{
+
+
+document
+.getElementById(
+"launchTogether"
+)
+.classList.add(
+"show"
+);
+
+
+
+createLoveStars();
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function openCinema(){
+
+
+let cinema=
+document.getElementById(
+"cinema"
+);
+
+
+cinema.classList.add(
+"active"
+);
+
+
+
+showFinalText();
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   LOVE CONSTELLATION
+========================= */
+
+
+
+function createLoveStars(){
+
+
+let points=[];
+
+
+
+for(
+let t=0;
+t<Math.PI*2;
+t+=0.15
+){
+
+
+let x=
+16*
+Math.pow(
+Math.sin(t),
+3
+);
+
+
+
+let y=
+13*Math.cos(t)
+-
+5*Math.cos(2*t)
+-
+2*Math.cos(3*t)
+-
+Math.cos(4*t);
+
+
+
+points.push(
+[
+50+x,
+50-y
+]
+);
+
+
+
+}
+
+
+
+
+points.forEach(
+(point,i)=>{
+
+
+let star=
+document.createElement(
+"div"
+);
+
+
+
+star.className=
+"loveStar";
+
+
+
+star.style.left=
+point[0]+"vw";
+
+
+
+star.style.top=
+point[1]+"vh";
+
+
+
+setTimeout(
+()=>{
+
+star.classList.add(
+"appear"
+);
+
+},
+i*30
+);
+
+
+
+document.body.appendChild(
+star
+);
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   CONNECT TO OLD STORY
+========================= */
+
+
+let originalButton=
+document.getElementById(
+"continue"
+);
+
+
+
+originalButton.addEventListener(
+"click",
+()=>{
+
+
+if(step===4){
+
+
+setTimeout(
+openCinema,
+5000
+);
+
+
+}
+
+
+});
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   FINAL BUTTON
+========================= */
+
+
+document
+.getElementById(
+"launchTogether"
+)
+.onclick=()=>{
+
+
+let cinema=
+document.getElementById(
+"cinema"
+);
+
+
+
+cinema.style.background=
+"radial-gradient(circle,#9eeaff,#000)";
+
+
+
+let text=
+document.getElementById(
+"cinemaWords"
+);
+
+
+
+text.innerHTML=
+"Mission Complete.<br><br>Forever Fireteam ❤️";
+
+
+
+document
+.getElementById(
+"launchTogether"
+)
+.style.display=
+"none";
+
+
+
+};
+
+
+
+
+
+
+
+
+
+/* =========================
+   KONAMI EXTRA
+========================= */
+
+
+let combo=[];
+
+
+let guardianCode=[
+
+"g",
+"h",
+"o",
+"s",
+"t"
+
+];
+
+
+
+window.addEventListener(
+"keydown",
+e=>{
+
+
+combo.push(
+e.key.toLowerCase()
+);
+
+
+
+combo=
+combo.slice(-5);
+
+
+
+if(
+JSON.stringify(combo)
+===
+JSON.stringify(guardianCode)
+){
+
+
+alert(
+"Ghost companion unlocked 👻"
+);
+
+
+document
+.getElementById(
+"ghost"
+)
+.style.fontSize=
+"100px";
+
+
+
+}
+
+
+
+});
+
+
+
+
+
+</script>
+
+  <!-- =========================
+ PART 5 : FINAL POLISH + SOUND + EXTRA EASTER EGGS
+ ADD BEFORE </body>
+========================= -->
+
+
+<style>
+
+
+/* =========================
+   AUDIO BUTTON
+========================= */
+
+
+#musicButton{
+
+
+position:absolute;
+
+top:30px;
+right:30px;
+
+width:55px;
+height:55px;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.1);
+
+color:white;
+
+border:
+1px solid rgba(255,255,255,.3);
+
+backdrop-filter:blur(10px);
+
+font-size:22px;
+
+z-index:300;
+
+
+}
+
+
+
+
+/* =========================
+   SCANLINES
+========================= */
+
+
+body:after{
+
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+
+background:
+
+repeating-linear-gradient(
+
+to bottom,
+
+rgba(255,255,255,.03),
+
+rgba(255,255,255,.03) 1px,
+
+transparent 1px,
+
+transparent 4px
+
+);
+
+
+opacity:.2;
+
+
+z-index:250;
+
+}
+
+
+
+
+
+/* =========================
+   ORBIT DATA
+========================= */
+
+
+#data{
+
+
+position:absolute;
+
+top:30px;
+left:30px;
+
+font-size:12px;
+
+letter-spacing:3px;
+
+opacity:.5;
+
+z-index:20;
+
+}
+
+
+
+</style>
+
+
+
+
+
+<button id="musicButton">
+
+♫
+
+</button>
+
+
+
+<div id="data">
+
+SYSTEM ONLINE
+
+<br>
+
+ORBIT: ACTIVE
+
+<br>
+
+FIRETEAM: CONNECTED
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+/* =========================
+   SOFT SPACE AUDIO
+========================= */
+
+
+
+let audioStarted=false;
+
+
+let audio;
+
+
+
+function startMusic(){
+
+
+if(audioStarted)
+return;
+
+
+
+audioStarted=true;
+
+
+audio=
+new Audio(
+"https://cdn.pixabay.com/audio/2022/03/15/audio_6f0d3d8b52.mp3"
+);
+
+
+audio.loop=true;
+
+audio.volume=.15;
+
+audio.play();
+
+
+
+}
+
+
+
+
+
+document
+.getElementById(
+"musicButton"
+)
+.onclick=()=>{
+
+
+startMusic();
+
+
+
+document
+.getElementById(
+"musicButton"
+)
+.innerHTML=
+"🔊";
+
+
+};
+
+
+
+
+
+
+document.body.onclick=
+()=>{
+
+startMusic();
+
+};
+
+
+
+
+
+
+
+
+
+/* =========================
+   CONSTELLATION PARTICLES
+========================= */
+
+
+
+function fallingStars(){
+
+
+let star=
+document.createElement(
+"div"
+);
+
+
+star.className=
+"cursorStar";
+
+
+star.style.left=
+Math.random()*100+"vw";
+
+
+star.style.top="-20px";
+
+
+
+star.style.animationDuration=
+(2+Math.random()*3)+"s";
+
+
+
+document.body.appendChild(
+star
+);
+
+
+
+setTimeout(
+()=>star.remove(),
+5000
+);
+
+
+}
+
+
+
+setInterval(
+fallingStars,
+700
+);
+
+
+
+
+
+
+
+
+
+/* =========================
+   DESTINY INSPIRED WORDS
+========================= */
+
+
+
+let words=[
+
+
+"THE TRAVELER IS WATCHING",
+
+
+"NEW ADVENTURE FOUND",
+
+
+"LIGHT DETECTED",
+
+
+"GUARDIAN ONLINE",
+
+
+"FIRETEAM READY",
+
+
+"MEMORY SAVED"
+
+
+
+];
+
+
+
+setInterval(()=>{
+
+
+let msg=
+document.createElement(
+"div"
+);
+
+
+
+msg.style.position=
+"absolute";
+
+
+msg.style.left=
+Math.random()*80+"vw";
+
+
+msg.style.top=
+Math.random()*80+"vh";
+
+
+msg.style.fontSize=
+"11px";
+
+
+msg.style.opacity=
+".35";
+
+
+msg.innerHTML=
+words[
+Math.floor(
+Math.random()*words.length
+)
+];
+
+
+
+document.body.appendChild(
+msg
+);
+
+
+
+setTimeout(
+()=>msg.remove(),
+3000
+);
+
+
+
+},6000);
+
+
+
+
+
+
+
+
+
+/* =========================
+   GHOST PERSONALITY
+========================= */
+
+
+
+let ghostMessages=[
+
+
+"I have scanned every galaxy.",
+
+
+"You are still my favorite discovery.",
+
+
+"Mission objective: Make you smile.",
+
+
+"Guardian, stay close.",
+
+
+"Love detected."
+
+];
+
+
+
+document
+.getElementById(
+"ghost"
+)
+.addEventListener(
+"mouseenter",
+()=>{
+
+
+document
+.getElementById(
+"ghostText"
+)
+.innerHTML=
+ghostMessages[
+Math.floor(
+Math.random()*
+ghostMessages.length
+)
+];
+
+
+
+document
+.getElementById(
+"ghostText"
+)
+.style.opacity=1;
+
+
+
+}
+);
+
+
+
+
+
+
+
+/* =========================
+   SECRET PLANET MESSAGE
+========================= */
+
+
+
+let planetClicks=0;
+
+
+
+document
+.querySelector(
+".planet.small"
+)
+.onclick=()=>{
+
+
+planetClicks++;
+
+
+
+if(planetClicks===5){
+
+
+alert(
+
+"Secret message found:\n\n" +
+
+"Even across galaxies...\n" +
+
+"I would still choose you."
+
+);
+
+
+
+planetClicks=0;
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+
+
+
+/* =========================
+   FINAL MEMORY
+========================= */
+
+
+
+window.addEventListener(
+"beforeunload",
+()=>{
+
+
+localStorage.setItem(
+"guardianVisited",
+"true"
+);
+
+
+});
+
+
+
+if(
+localStorage.getItem(
+"guardianVisited"
+)
+){
+
+
+setTimeout(()=>{
+
+
+let notice=
+document.createElement(
+"div"
+);
+
+
+
+notice.style.position=
+"absolute";
+
+
+notice.style.bottom=
+"20px";
+
+
+notice.style.width=
+"100%";
+
+
+notice.style.textAlign=
+"center";
+
+
+notice.style.opacity=.4;
+
+
+notice.innerHTML=
+"Welcome back, Guardian ❤️";
+
+
+
+document.body.appendChild(
+notice
+);
+
+
+
+setTimeout(
+()=>notice.remove(),
+5000
+);
+
+
+
+},2000);
+
+
+
+}
+
+
+
+
+
+
+
+</script>
+
+  <!-- =========================
+ PART 6 : LAST CINEMATIC TOUCHES
+ ADD BEFORE </body>
+========================= -->
+
+
+<style>
+
+
+/* =========================
+   CINEMATIC CAMERA
+========================= */
+
+
+#cameraShake{
+
+animation:none;
+
+}
+
+
+
+.shake{
+
+animation:
+
+shake .8s;
+
+}
+
+
+
+@keyframes shake{
+
+
+0%{
+transform:translate(0);
+}
+
+
+25%{
+transform:translate(8px,-5px);
+}
+
+
+50%{
+transform:translate(-8px,5px);
+}
+
+
+75%{
+transform:translate(5px,8px);
+}
+
+
+100%{
+transform:translate(0);
+}
+
+
+}
+
+
+
+
+
+/* =========================
+   HYPERDRIVE CORE
+========================= */
+
+
+#core{
+
+
+position:absolute;
+
+
+left:50%;
+top:50%;
+
+
+width:30px;
+height:30px;
+
+
+transform:
+translate(-50%,-50%);
+
+
+border-radius:50%;
+
+
+background:white;
+
+
+box-shadow:
+
+0 0 30px white,
+0 0 80px cyan;
+
+
+opacity:0;
+
+
+z-index:300;
+
+
+
+}
+
+
+
+.coreActive{
+
+
+animation:
+
+corePulse 2s infinite;
+
+
+opacity:1 !important;
+
+
+}
+
+
+
+
+@keyframes corePulse{
+
+
+50%{
+
+transform:
+translate(-50%,-50%)
+scale(3);
+
+}
+
+
+}
+
+
+
+
+
+/* =========================
+   DESTINY STYLE HUD
+========================= */
+
+
+
+#hud{
+
+
+position:absolute;
+
+bottom:25px;
+
+left:25px;
+
+
+font-size:13px;
+
+
+letter-spacing:2px;
+
+
+opacity:.5;
+
+
+}
+
+
+
+</style>
+
+
+
+
+
+<div id="core"></div>
+
+
+<div id="hud">
+
+☼ LIGHT: STABLE
+
+<br>
+
+✦ GHOST: ONLINE
+
+<br>
+
+🚀 SHIP: READY
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+
+/* =========================
+   HYPERDRIVE CORE EFFECT
+========================= */
+
+
+function activateCore(){
+
+
+let core=
+document.getElementById(
+"core"
+);
+
+
+
+core.classList.add(
+"coreActive"
+);
+
+
+
+setTimeout(()=>{
+
+
+core.classList.remove(
+"coreActive"
+);
+
+
+},5000);
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   CAMERA SHAKE EVENTS
+========================= */
+
+
+function shake(){
+
+
+document.body.classList.add(
+"shake"
+);
+
+
+
+setTimeout(()=>{
+
+
+document.body.classList.remove(
+"shake"
+);
+
+
+},800);
+
+
+
+}
+
+
+
+
+
+
+
+setInterval(()=>{
+
+
+if(Math.random()>.7){
+
+
+shake();
+
+
+}
+
+
+},7000);
+
+
+
+
+
+
+
+
+/* =========================
+   STAR SHOOTING SYSTEM
+========================= */
+
+
+function shootingStar(){
+
+
+
+let meteor=
+document.createElement(
+"div"
+);
+
+
+
+meteor.style.position=
+"absolute";
+
+
+meteor.style.width=
+"150px";
+
+
+meteor.style.height=
+"2px";
+
+
+meteor.style.background=
+"white";
+
+
+meteor.style.boxShadow=
+"0 0 20px cyan";
+
+
+meteor.style.left=
+"-200px";
+
+
+meteor.style.top=
+Math.random()*80+"vh";
+
+
+meteor.style.transform=
+"rotate(-25deg)";
+
+
+meteor.style.transition=
+"2s linear";
+
+
+
+document.body.appendChild(
+meteor
+);
+
+
+
+setTimeout(()=>{
+
+
+meteor.style.left=
+"120vw";
+
+
+
+},50);
+
+
+
+setTimeout(()=>{
+
+
+meteor.remove();
+
+
+
+},2200);
+
+
+
+}
+
+
+
+
+setInterval(
+shootingStar,
+5000
+);
+
+
+
+
+
+
+
+
+
+/* =========================
+   UNLOCK LAST MODE
+========================= */
+
+
+
+let launch=
+document.getElementById(
+"launchTogether"
+);
+
+
+
+if(launch){
+
+
+launch.addEventListener(
+"click",
+()=>{
+
+
+activateCore();
+
+
+setTimeout(()=>{
+
+
+document.body.style.transition=
+"2s";
+
+
+document.body.style.transform=
+"scale(1.1)";
+
+
+
+},500);
+
+
+
+setTimeout(()=>{
+
+
+document.body.style.transform=
+"scale(1)";
+
+
+},3000);
+
+
+
+});
+
+}
+
+
+
+
+
+/* =========================
+   FINAL MESSAGE RANDOMIZER
+========================= */
+
+
+let memories=[
+
+
+"Some stars are worth chasing.",
+
+
+"Some worlds are worth exploring.",
+
+
+"Some people are worth everything.",
+
+
+"My favorite destination is wherever you are."
+
+];
+
+
+
+setInterval(()=>{
+
+
+let m=
+document.createElement(
+"div"
+);
+
+
+
+m.style.position=
+"absolute";
+
+
+m.style.top=
+Math.random()*100+"vh";
+
+
+m.style.left=
+Math.random()*100+"vw";
+
+
+m.style.opacity=.25;
+
+
+m.style.fontSize="13px";
+
+
+m.innerHTML=
+memories[
+Math.floor(
+Math.random()*
+memories.length
+)
+];
+
+
+
+document.body.appendChild(
+m
+);
+
+
+
+setTimeout(
+()=>m.remove(),
+5000
+);
+
+
+
+},10000);
+
+
+
+
+
+
+
+
+/* =========================
+   GUARDIAN NAME SYSTEM
+========================= */
+
+
+
+let namePrompt=
+false;
+
+
+
+document.addEventListener(
+"keydown",
+e=>{
+
+
+if(e.key==="g"){
+
+
+namePrompt=true;
+
+
+
+}
+
+
+
+if(namePrompt && e.key==="Enter"){
+
+
+
+let name=
+prompt(
+"Guardian name:"
+);
+
+
+
+if(name){
+
+
+alert(
+"Welcome, Guardian "+name+" ❤️"
+);
+
+
+}
+
+
+
+namePrompt=false;
+
+
+
+}
+
+
+
+});
+
+
+
+
+
+</script>
+
+  <!-- =========================
+ PART 7 : FINAL EASTER EGGS + COMPLETE ENDING
+ ADD BEFORE </body>
+========================= -->
+
+
+<style>
+
+
+/* =========================
+   FINAL VOID TRANSITION
+========================= */
+
+
+#void{
+
+
+position:absolute;
+
+inset:0;
+
+background:black;
+
+opacity:0;
+
+pointer-events:none;
+
+z-index:999;
+
+
+transition:3s;
+
+
+}
+
+
+
+#void.active{
+
+opacity:1;
+
+}
+
+
+
+
+/* =========================
+   FLOATING LOVE TEXT
+========================= */
+
+
+
+.loveMessage{
+
+
+position:absolute;
+
+font-size:14px;
+
+letter-spacing:2px;
+
+opacity:0;
+
+
+animation:
+floatLove 6s forwards;
+
+
+}
+
+
+
+@keyframes floatLove{
+
+
+0%{
+
+opacity:0;
+
+transform:
+translateY(0);
+
+}
+
+
+
+20%{
+
+opacity:.8;
+
+}
+
+
+
+100%{
+
+
+opacity:0;
+
+transform:
+translateY(-150px);
+
+
+}
+
+
+}
+
+
+
+
+
+
+/* =========================
+   GHOST HOLOGRAM
+========================= */
+
+
+
+#ghostHolo{
+
+
+position:absolute;
+
+inset:0;
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+pointer-events:none;
+
+
+opacity:0;
+
+
+z-index:400;
+
+
+}
+
+
+
+#ghostHolo span{
+
+
+font-size:80px;
+
+
+filter:
+
+drop-shadow(
+0 0 25px cyan
+);
+
+
+
+}
+
+
+
+
+
+</style>
+
+
+
+
+
+<div id="void"></div>
+
+
+<div id="ghostHolo">
+
+<span>
+
+✦
+
+</span>
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+
+/* =========================
+   FLOATING LOVE WORDS
+========================= */
+
+
+let loveWords=[
+
+
+"always",
+
+
+"my guardian",
+
+
+"my fireteam",
+
+
+"our adventure",
+
+
+"forever orbit",
+
+
+"you + me"
+
+
+];
+
+
+
+function spawnLove(){
+
+
+
+let text=
+document.createElement(
+"div"
+);
+
+
+
+text.className=
+"loveMessage";
+
+
+text.innerHTML=
+loveWords[
+Math.floor(
+Math.random()*
+loveWords.length
+)
+];
+
+
+
+text.style.left=
+Math.random()*90+"vw";
+
+
+
+text.style.top=
+Math.random()*90+"vh";
+
+
+
+document.body.appendChild(
+text
+);
+
+
+
+setTimeout(
+()=>text.remove(),
+6000
+);
+
+
+
+}
+
+
+
+setInterval(
+spawnLove,
+3500
+);
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   GHOST HOLOGRAM EVENT
+========================= */
+
+
+
+function ghostVision(){
+
+
+let holo=
+document.getElementById(
+"ghostHolo"
+);
+
+
+
+holo.style.opacity=1;
+
+
+
+setTimeout(()=>{
+
+
+holo.style.opacity=0;
+
+
+},2000);
+
+
+
+}
+
+
+
+
+
+
+document
+.getElementById(
+"ghost"
+)
+.addEventListener(
+"click",
+()=>{
+
+
+ghostVision();
+
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =========================
+   SECRET ORBIT MODE
+========================= */
+
+
+
+let orbitClicks=0;
+
+
+document
+.querySelector(
+".orbit"
+)
+.addEventListener(
+"click",
+()=>{
+
+
+orbitClicks++;
+
+
+
+if(orbitClicks===7){
+
+
+
+document.body.style.transition=
+"3s";
+
+
+document.body.style.filter=
+"brightness(1.8)";
+
+
+alert(
+
+"Orbit unlocked.\n\n" +
+
+"You found the hidden path."
+
+);
+
+
+
+orbitClicks=0;
+
+
+
+}
+
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =========================
+   FINAL HYPERSPACE EXIT
+========================= */
+
+
+let finalButton=
+document.getElementById(
+"launchTogether"
+);
+
+
+
+if(finalButton){
+
+
+finalButton.addEventListener(
+"click",
+()=>{
+
+
+let voidScreen=
+document.getElementById(
+"void"
+);
+
+
+
+setTimeout(()=>{
+
+
+voidScreen.classList.add(
+"active"
+);
+
+
+
+},2500);
+
+
+
+setTimeout(()=>{
+
+
+voidScreen.classList.remove(
+"active"
+);
+
+
+
+},6000);
+
+
+
+});
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   SECRET DESTINY QUOTES
+========================= */
+
+
+
+let quoteClicks=0;
+
+
+
+document
+.getElementById(
+"data"
+)
+.onclick=()=>{
+
+
+quoteClicks++;
+
+
+
+let quotes=[
+
+
+"Whether we wanted it or not...",
+
+
+"Eyes up, Guardian.",
+
+
+"The Light remembers.",
+
+
+"Another adventure begins.",
+
+
+"Never leave your fireteam behind."
+
+];
+
+
+
+
+if(quoteClicks>=3){
+
+
+alert(
+quotes[
+Math.floor(
+Math.random()*
+quotes.length
+)
+]
+);
+
+
+
+quoteClicks=0;
+
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+
+
+
+/* =========================
+   FINAL MEMORY SAVE
+========================= */
+
+
+setTimeout(()=>{
+
+
+localStorage.setItem(
+"favoriteGuardian",
+"true"
+);
+
+
+
+},5000);
+
+
+
+
+
+
+
+/* =========================
+   RETURN MESSAGE
+========================= */
+
+
+
+if(
+localStorage.getItem(
+"favoriteGuardian"
+)
+){
+
+
+let back=
+document.createElement(
+"div"
+);
+
+
+
+back.style.position=
+"absolute";
+
+
+back.style.top=
+"50px";
+
+
+back.style.width=
+"100%";
+
+
+back.style.textAlign=
+"center";
+
+
+back.style.opacity=
+".35";
+
+
+back.innerHTML=
+
+"✦ Fireteam reunited ✦";
+
+
+
+document.body.appendChild(
+back
+);
+
+
+
+}
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>
