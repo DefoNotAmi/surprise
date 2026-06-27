@@ -9,7 +9,29 @@
 <title>My Favorite Guardian</title>
 
 <style>
+ html, body {
+    touch-action: manipulation;
+}
 
+.nebula,
+.star,
+.particle,
+.transition {
+    pointer-events: none;
+}
+
+
+.interface,
+.transmission,
+button {
+    pointer-events: auto;
+}
+
+
+button {
+    position: relative;
+    z-index: 9999;
+}
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;500;700&display=swap');
 
 
@@ -44,6 +66,7 @@ body{
     width:100%;
     height:100%;
     overflow:hidden;
+    pointer-events:none;
 
 }
 
@@ -486,115 +509,7 @@ button:hover{
     transition:3s;
 
 }
- /* =========================
- MOBILE FIX
-========================= */
 
-@media(max-width:700px){
-
-*{
-cursor:auto;
-}
-
-
-body{
-overflow:hidden;
-}
-
-
-h1{
-
-font-size:24px;
-padding:20px;
-
-}
-
-
-.text{
-
-font-size:16px;
-padding:20px;
-
-}
-
-
-button{
-
-padding:12px 35px;
-
-}
-
-
-.planet.big{
-
-width:280px;
-height:280px;
-
-right:-120px;
-bottom:-50px;
-
-}
-
-
-.planet.small{
-
-width:90px;
-height:90px;
-
-left:30px;
-top:100px;
-
-}
-
-
-.ship{
-
-font-size:45px;
-
-}
-
-
-.ghost{
-
-right:20px;
-bottom:20px;
-
-font-size:40px;
-
-}
-
-
-.orbit{
-
-width:350px;
-height:350px;
-
-}
-
-
-#final h2{
-
-font-size:24px;
-padding:20px;
-
-}
-
-
-#cinemaWords{
-
-font-size:22px;
-padding:25px;
-
-}
-
-
-.loveMessage{
-
-font-size:11px;
-
-}
-
-}
 
 
 </style>
@@ -696,6 +611,25 @@ I don't care if we fail missions.
 I just want you in my fireteam.
 
 </div>
+
+
+
+<div class="text hidden" id="four">
+
+The Light isn't what makes a Guardian special.
+
+<br>
+
+You do.
+
+❤️
+
+</div>
+
+
+</div>
+
+
 
 
 <div class="ghost" id="ghost">
@@ -961,7 +895,29 @@ alert(
 
 
 <style>
+html, body {
+    touch-action: manipulation;
+}
 
+.nebula,
+.star,
+.particle,
+.transition {
+    pointer-events: none;
+}
+
+
+.interface,
+.transmission,
+button {
+    pointer-events: auto;
+}
+
+
+button {
+    position: relative;
+    z-index: 9999;
+}
 
 /* =========================
    HYPERSPACE EFFECT
@@ -1601,7 +1557,29 @@ final.style.opacity=1;
 
 <style>
 
+html, body {
+    touch-action: manipulation;
+}
 
+.nebula,
+.star,
+.particle,
+.transition {
+    pointer-events: none;
+}
+
+
+.interface,
+.transmission,
+button {
+    pointer-events: auto;
+}
+
+
+button {
+    position: relative;
+    z-index: 9999;
+}
 /* =========================
    STARS PARTICLE TRAIL
 ========================= */
@@ -2293,7 +2271,29 @@ idleMessage,
 
 <style>
 
+html, body {
+    touch-action: manipulation;
+}
 
+.nebula,
+.star,
+.particle,
+.transition {
+    pointer-events: none;
+}
+
+
+.interface,
+.transmission,
+button {
+    pointer-events: auto;
+}
+
+
+button {
+    position: relative;
+    z-index: 9999;
+}
 /* =========================
    FINAL SPACE CINEMA
 ========================= */
@@ -2948,7 +2948,29 @@ document
 
 <style>
 
+html, body {
+    touch-action: manipulation;
+}
 
+.nebula,
+.star,
+.particle,
+.transition {
+    pointer-events: none;
+}
+
+
+.interface,
+.transmission,
+button {
+    pointer-events: auto;
+}
+
+
+button {
+    position: relative;
+    z-index: 9999;
+}
 /* =========================
    AUDIO BUTTON
 ========================= */
@@ -3555,7 +3577,29 @@ setTimeout(
 
 <style>
 
+html, body {
+    touch-action: manipulation;
+}
 
+.nebula,
+.star,
+.particle,
+.transition {
+    pointer-events: none;
+}
+
+
+.interface,
+.transmission,
+button {
+    pointer-events: auto;
+}
+
+
+button {
+    position: relative;
+    z-index: 9999;
+}
 /* =========================
    CINEMATIC CAMERA
 ========================= */
@@ -4171,7 +4215,29 @@ namePrompt=false;
 
 <style>
 
+html, body {
+    touch-action: manipulation;
+}
 
+.nebula,
+.star,
+.particle,
+.transition {
+    pointer-events: none;
+}
+
+
+.interface,
+.transmission,
+button {
+    pointer-events: auto;
+}
+
+
+button {
+    position: relative;
+    z-index: 9999;
+}
 /* =========================
    FINAL VOID TRANSITION
 ========================= */
@@ -4806,84 +4872,6 @@ back
 
 
 </script>
-    
-...
-
-<script>
-
-// tout ton JavaScript existant
-
-</script>
-
-<script>
-
-/* =========================
- MOBILE TOUCH STARS
-========================= */
-
-document.addEventListener(
-"touchmove",
-e=>{
-
-let touch=e.touches[0];
-
-let s=document.createElement("div");
-
-s.className="cursorStar";
-
-s.style.left=touch.clientX+"px";
-s.style.top=touch.clientY+"px";
-
-document.body.appendChild(s);
-
-setTimeout(()=>{
-    s.remove();
-},800);
-
-},
-{passive:true}
-);
-
-
-/* =========================
- MOBILE AUDIO FIX
-========================= */
-
-document.addEventListener(
-"touchstart",
-()=>{
-
-if(audio && audio.paused){
-    audio.play();
-}
-
-},
-{once:true}
-);
-
-
-/* =========================
- PERFORMANCE MODE
-========================= */
-
-if(window.innerWidth < 700){
-
-let stars=document.querySelectorAll(".star");
-
-stars.forEach((s,i)=>{
-
-if(i>120){
-    s.remove();
-}
-
-});
-
-}
-
-</script>
-
-</body>
-</html>
 </body>
 
 </html>
